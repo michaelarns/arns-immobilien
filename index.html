@@ -191,6 +191,27 @@ body {
   background: var(--brand); opacity: 0.2;
 }
 
+/* Panorama */
+.panorama {
+  width: 100%; height: 340px; overflow: hidden; position: relative;
+}
+.panorama img {
+  width: 100%; height: 100%; object-fit: cover; object-position: center 40%;
+  filter: saturate(0.4) brightness(0.85) contrast(1.05);
+}
+.panorama::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(
+    to bottom,
+    var(--brand) 0%,
+    rgba(19, 39, 70, 0.25) 30%,
+    rgba(19, 39, 70, 0.25) 70%,
+    var(--brand) 100%
+  );
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
 /* Kontakt */
 .kontakt { background: var(--white); }
 .kontakt-layout {
@@ -393,6 +414,7 @@ body {
   .ankauf-details { grid-template-columns: repeat(2, 1fr); }
   .ankauf-details .ankauf-detail:last-child { grid-column: 1 / -1; }
   .ankauf-footer { flex-direction: column; gap: 1rem; align-items: center; }
+  .panorama { height: 200px; }
   .ueber-uns-layout { grid-template-columns: 1fr; gap: 2rem; }
   .ueber-uns-photo { width: 180px; height: 225px; margin: 0 auto; }
   .hv-grid { grid-template-columns: 1fr; gap: 2.5rem; }
@@ -580,6 +602,10 @@ body {
     </div>
   </div>
 </section>
+
+<div class="panorama" role="img" aria-label="Stadtpanorama Köln und Wuppertal bei Abenddämmerung">
+  <img src="panorama.jpg" alt="Panorama von Köln und Wuppertal — die Standorte von ARNS Immobilien" width="1920" height="540" loading="lazy">
+</div>
 
 <section class="section ueber-uns" id="ueber-uns">
   <div class="section-inner">
