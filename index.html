@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ARNS Immobilien — Privater Immobilieninvestor · Köln & Wuppertal</title>
+<meta name="description" content="ARNS Immobilien — Privater Investor für Mehrfamilienhäuser in Köln und Wuppertal. Seriös, entscheidungsstark, eigenkapitalfinanziert.">
+<link rel="canonical" href="https://arns-immobilien.de/">
+<meta property="og:title" content="ARNS Immobilien — Privater Immobilieninvestor">
+<meta property="og:description" content="Wir investieren gezielt in Mehrfamilienhäuser in Köln und Wuppertal. Schnelle Entscheidungswege, Eigenkapital vorhanden.">
+<meta property="og:url" content="https://arns-immobilien.de/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_DE">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --brand: #132746;
+  --brand-light: #1B3460;
+  --brand-muted: rgba(19, 39, 70, 0.55);
+  --brand-subtle: rgba(19, 39, 70, 0.08);
+  --white: #FFFFFF;
+  --off-white: #FAFAFA;
+  --border: #E5E5E5;
+  --border-light: #EFEFEF;
+  --text-primary: #132746;
+  --text-secondary: #4A5568;
+  --text-tertiary: #8895A7;
+  --font: 'Montserrat', -apple-system, sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: var(--font);
+  font-weight: 400;
+  color: var(--text-primary);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Navigation */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-light);
+  transition: box-shadow 0.3s ease;
+}
+.nav.scrolled { box-shadow: 0 1px 16px rgba(19,39,70,0.05); }
+.nav-inner {
+  max-width: 1080px; margin: 0 auto; padding: 0 2rem;
+  display: flex; align-items: center; justify-content: space-between; height: 72px;
+}
+.nav-logo img { height: 40px; width: auto; }
+.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links a {
+  font-size: 0.75rem; font-weight: 500; color: var(--brand);
+  text-decoration: none; letter-spacing: 0.12em; text-transform: uppercase;
+  position: relative; padding-bottom: 2px;
+}
+.nav-links a::after {
+  content: ''; position: absolute; bottom: -2px; left: 0;
+  width: 0; height: 1px; background: var(--brand); transition: width 0.3s ease;
+}
+.nav-links a:hover::after { width: 100%; }
+.nav-hamburger {
+  display: none; flex-direction: column; gap: 5px;
+  cursor: pointer; padding: 8px; background: none; border: none;
+}
+.nav-hamburger span { width: 22px; height: 1.5px; background: var(--brand); }
+
+/* Hero */
+.hero {
+  min-height: 100vh; display: flex; align-items: center; justify-content: center;
+  text-align: center; padding: 6rem 2rem 4rem; background: var(--white);
+}
+.hero-content { max-width: 640px; }
+.hero-logo {
+  width: 110px; height: auto; margin-bottom: 3rem;
+  opacity: 0; animation: fadeUp 0.8s ease forwards;
+}
+.hero-eyebrow {
+  font-size: 0.7rem; font-weight: 500; letter-spacing: 0.25em;
+  text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 1.75rem;
+  opacity: 0; animation: fadeUp 0.8s ease 0.15s forwards;
+}
+.hero h1 {
+  font-size: clamp(2rem, 4.5vw, 2.8rem); font-weight: 300;
+  line-height: 1.25; color: var(--brand); letter-spacing: -0.01em; margin-bottom: 1.75rem;
+  opacity: 0; animation: fadeUp 0.8s ease 0.3s forwards;
+}
+.hero h1 strong { font-weight: 500; }
+.hero-subtitle {
+  font-size: 0.975rem; font-weight: 300; line-height: 1.8;
+  color: var(--text-secondary); max-width: 480px; margin: 0 auto 3rem;
+  opacity: 0; animation: fadeUp 0.8s ease 0.45s forwards;
+}
+.hero-cta {
+  display: inline-block; font-size: 0.75rem; font-weight: 500;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--white); background: var(--brand);
+  padding: 1rem 2.75rem; text-decoration: none; transition: all 0.3s ease;
+  opacity: 0; animation: fadeUp 0.8s ease 0.6s forwards;
+}
+.hero-cta:hover { background: var(--brand-light); transform: translateY(-1px); }
+.hero-scroll {
+  position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 0.75rem;
+  opacity: 0; animation: fadeUp 0.8s ease 0.9s forwards;
+}
+.hero-scroll span {
+  font-size: 0.65rem; font-weight: 500; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--text-tertiary);
+}
+.hero-scroll .line { width: 1px; height: 36px; background: var(--border); }
+
+/* Sections */
+.section { padding: 7rem 2rem; }
+.section-inner { max-width: 960px; margin: 0 auto; }
+.section-label {
+  font-size: 0.65rem; font-weight: 500; letter-spacing: 0.25em;
+  text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 1.25rem;
+}
+.section-title {
+  font-size: clamp(1.6rem, 3vw, 2.1rem); font-weight: 300;
+  color: var(--brand); margin-bottom: 1rem; letter-spacing: -0.01em;
+}
+.section-subtitle {
+  font-size: 0.95rem; font-weight: 300; color: var(--text-secondary);
+  line-height: 1.8; max-width: 520px;
+}
+.divider { width: 40px; height: 1px; background: var(--brand); opacity: 0.2; margin: 3.5rem 0; }
+
+/* Ankaufsprofil */
+.ankauf {
+  background: var(--off-white);
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+}
+.ankauf-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1px; background: var(--border); margin-top: 3.5rem;
+}
+.ankauf-card { background: var(--white); padding: 2.75rem 2rem; text-align: center; }
+.ankauf-card-icon {
+  width: 28px; height: 28px; margin: 0 auto 1.75rem;
+  color: var(--brand); opacity: 0.35;
+}
+.ankauf-card-title {
+  font-size: 0.7rem; font-weight: 500; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 1rem;
+}
+.ankauf-card-value {
+  font-size: 1.15rem; font-weight: 300; color: var(--brand); line-height: 1.6;
+}
+.ankauf-card-value strong { font-weight: 500; }
+.ankauf-card-highlight {
+  display: block; font-size: 1.5rem; font-weight: 500;
+  color: var(--brand); margin-top: 0.5rem; letter-spacing: -0.01em;
+}
+.ankauf-footer {
+  text-align: center; margin-top: 3rem;
+  display: flex; justify-content: center; gap: 2rem;
+}
+.ankauf-details {
+  display: grid; grid-template-columns: repeat(5, 1fr);
+  gap: 1px; background: var(--border); margin-top: 1px;
+}
+.ankauf-detail {
+  background: var(--white); padding: 1.75rem 1.25rem; text-align: center;
+}
+.ankauf-detail-label {
+  font-size: 0.6rem; font-weight: 500; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 0.6rem;
+}
+.ankauf-detail-value {
+  font-size: 0.925rem; font-weight: 400; color: var(--brand); line-height: 1.4;
+}
+.ankauf-tag {
+  font-size: 0.7rem; font-weight: 500; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--text-tertiary);
+  display: flex; align-items: center; gap: 0.5rem;
+}
+.ankauf-tag::before {
+  content: ''; width: 6px; height: 6px; border-radius: 50%;
+  background: var(--brand); opacity: 0.2;
+}
+
+/* Kontakt */
+.kontakt { background: var(--white); }
+.kontakt-layout {
+  display: grid; grid-template-columns: 1fr 1.2fr;
+  gap: 5rem; margin-top: 3.5rem;
+}
+.kontakt-info { display: flex; flex-direction: column; gap: 2.25rem; }
+.kontakt-info-item { display: flex; gap: 1rem; align-items: flex-start; }
+.kontakt-info-icon {
+  width: 18px; height: 18px; flex-shrink: 0; margin-top: 3px;
+  color: var(--brand); opacity: 0.35;
+}
+.kontakt-info-label {
+  font-size: 0.65rem; font-weight: 500; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 0.35rem;
+}
+.kontakt-info-value { font-size: 0.925rem; font-weight: 300; color: var(--text-primary); line-height: 1.6; }
+.kontakt-info-value a {
+  color: var(--brand); text-decoration: none;
+  border-bottom: 1px solid var(--border); transition: border-color 0.2s;
+}
+.kontakt-info-value a:hover { border-color: var(--brand); }
+.kontakt-form { display: flex; flex-direction: column; gap: 1.25rem; }
+.form-group label {
+  display: block; font-size: 0.65rem; font-weight: 500;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--text-tertiary); margin-bottom: 0.5rem;
+}
+.form-group input, .form-group textarea {
+  width: 100%; font-family: var(--font); font-size: 0.925rem; font-weight: 300;
+  color: var(--text-primary); background: var(--white);
+  border: 1px solid var(--border); padding: 0.85rem 1rem;
+  transition: border-color 0.2s; outline: none;
+}
+.form-group input::placeholder, .form-group textarea::placeholder {
+  color: var(--text-tertiary); font-weight: 300;
+}
+.form-group input:focus, .form-group textarea:focus { border-color: var(--brand-muted); }
+.form-group textarea { resize: vertical; min-height: 120px; }
+.form-submit {
+  align-self: flex-start; font-family: var(--font);
+  font-size: 0.72rem; font-weight: 500; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--white); background: var(--brand);
+  border: none; padding: 1rem 2.75rem; cursor: pointer; transition: all 0.3s ease;
+}
+.form-submit:hover { background: var(--brand-light); }
+
+/* Mieterportal */
+.mieter {
+  background: var(--off-white); border-top: 1px solid var(--border-light);
+  text-align: center;
+}
+.mieter .section-subtitle { margin: 0 auto 3rem; max-width: 460px; }
+.mieter-cta {
+  display: inline-flex; align-items: center; gap: 0.75rem;
+  font-family: var(--font); font-size: 0.72rem; font-weight: 500;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--brand); border: 1px solid var(--brand);
+  padding: 1rem 2.5rem; text-decoration: none; transition: all 0.3s ease;
+}
+.mieter-cta:hover { background: var(--brand); color: var(--white); }
+.mieter-cta svg { width: 14px; height: 14px; transition: transform 0.3s ease; }
+.mieter-cta:hover svg { transform: translateX(3px); }
+
+/* Footer */
+.footer { background: var(--brand); color: rgba(255,255,255,0.6); padding: 3rem 2rem; }
+.footer-inner {
+  max-width: 960px; margin: 0 auto;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.footer-logo img { height: 28px; filter: brightness(0) invert(1); opacity: 0.7; }
+.footer-links { display: flex; gap: 2rem; list-style: none; }
+.footer-links a {
+  font-size: 0.72rem; font-weight: 400; color: rgba(255,255,255,0.4);
+  text-decoration: none; letter-spacing: 0.05em; transition: color 0.2s;
+}
+.footer-links a:hover { color: rgba(255,255,255,0.85); }
+.footer-copy { font-size: 0.7rem; font-weight: 300; color: rgba(255,255,255,0.25); }
+
+/* Legal Overlays */
+.legal-overlay {
+  display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 200; background: var(--white); overflow-y: auto;
+}
+.legal-overlay.active { display: block; }
+.legal-header {
+  position: sticky; top: 0; background: rgba(255,255,255,0.97);
+  backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-light);
+  padding: 0 2rem; height: 72px; display: flex; align-items: center;
+}
+.legal-back {
+  font-family: var(--font); font-size: 0.75rem; font-weight: 500;
+  color: var(--brand); cursor: pointer; display: flex; align-items: center;
+  gap: 0.5rem; background: none; border: none; letter-spacing: 0.05em;
+}
+.legal-content { max-width: 640px; margin: 0 auto; padding: 3.5rem 2rem 6rem; }
+.legal-content h1 { font-size: 1.8rem; font-weight: 300; color: var(--brand); margin-bottom: 2.5rem; }
+.legal-content h2 { font-size: 0.95rem; font-weight: 500; color: var(--brand); margin: 2.5rem 0 0.75rem; }
+.legal-content p { font-size: 0.9rem; font-weight: 300; color: var(--text-secondary); line-height: 1.85; margin-bottom: 1rem; }
+
+/* Animations */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* Mobile */
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-links.open {
+    display: flex; flex-direction: column; position: absolute;
+    top: 72px; left: 0; right: 0; background: rgba(255,255,255,0.98);
+    backdrop-filter: blur(20px); padding: 1.5rem 2rem; gap: 1.5rem;
+    border-bottom: 1px solid var(--border-light);
+  }
+  .nav-hamburger { display: flex; }
+  .hero { min-height: auto; padding: 8rem 1.5rem 5rem; }
+  .hero h1 { font-size: 1.8rem; }
+  .section { padding: 4.5rem 1.5rem; }
+  .ankauf-grid { grid-template-columns: 1fr; }
+  .ankauf-details { grid-template-columns: repeat(2, 1fr); }
+  .ankauf-details .ankauf-detail:last-child { grid-column: 1 / -1; }
+  .ankauf-footer { flex-direction: column; gap: 1rem; align-items: center; }
+  .kontakt-layout { grid-template-columns: 1fr; gap: 3rem; }
+  .footer-inner { flex-direction: column; gap: 1.5rem; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo">
+      <img src="Logo_ARNS_Immobilien.png" alt="ARNS Immobilien">
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#ankaufsprofil" onclick="closeMenu()">Ankaufsprofil</a></li>
+      <li><a href="#kontakt" onclick="closeMenu()">Kontakt</a></li>
+      <li><a href="#mieterportal" onclick="closeMenu()">Mieterportal</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menü">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<section class="hero" id="hero">
+  <div class="hero-content">
+    <img src="Logo_ARNS_Immobilien.png" alt="ARNS Immobilien" class="hero-logo">
+    <p class="hero-eyebrow">Privater Immobilieninvestor</p>
+    <h1><strong>Mehrfamilienhäuser</strong> in<br>Köln &amp; Wuppertal</h1>
+    <p class="hero-subtitle">
+      Wir investieren gezielt in Mehrfamilienhäuser mit Potenzial — schnell in der Entscheidung, 
+      verlässlich in der Abwicklung, mit Eigenkapital unterlegt. 
+      Ihr nächstes Angebot ist bei uns in guten Händen.
+    </p>
+    <a href="#kontakt" class="hero-cta">Objekt anbieten</a>
+  </div>
+  <div class="hero-scroll">
+    <span>Mehr erfahren</span>
+    <div class="line"></div>
+  </div>
+</section>
+
+<section class="section ankauf" id="ankaufsprofil">
+  <div class="section-inner">
+    <div class="reveal">
+      <p class="section-label">Ankaufsprofil</p>
+      <h2 class="section-title">Was wir suchen</h2>
+      <p class="section-subtitle">Klar definiertes Suchprofil — damit Sie sofort wissen, ob Ihr Objekt passt.</p>
+    </div>
+    <div class="ankauf-grid reveal">
+      <div class="ankauf-card">
+        <svg class="ankauf-card-icon" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.2">
+          <rect x="3" y="7" width="22" height="18" rx="1.5"/>
+          <path d="M3 14h22M14 7v18"/>
+          <path d="M7 3v4M21 3v4"/>
+        </svg>
+        <h3 class="ankauf-card-title">Objektart</h3>
+        <p class="ankauf-card-value">Mehrfamilienhäuser<br>Bestandsimmobilien</p>
+      </div>
+      <div class="ankauf-card">
+        <svg class="ankauf-card-icon" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.2">
+          <circle cx="14" cy="12" r="4"/>
+          <path d="M14 26S3 18 3 12a11 11 0 0122 0c0 6-11 14-11 14z"/>
+        </svg>
+        <h3 class="ankauf-card-title">Regionen</h3>
+        <p class="ankauf-card-value"><strong>Köln</strong><br><strong>Wuppertal</strong></p>
+      </div>
+      <div class="ankauf-card">
+        <svg class="ankauf-card-icon" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.2">
+          <path d="M14 2v2M14 24v2M2 14h2M24 14h2"/>
+          <circle cx="14" cy="14" r="10"/>
+          <path d="M10 17.5c0-1.5 1-2.5 2.5-2.5h3c1.5 0 2.5-1 2.5-2.5S17 10 15.5 10h-3"/>
+          <path d="M11 10h6M11 18h6"/>
+        </svg>
+        <h3 class="ankauf-card-title">Investitionsvolumen</h3>
+        <p class="ankauf-card-value">Kaufpreis</p>
+        <span class="ankauf-card-highlight">500.000 – 1.000.000 €</span>
+      </div>
+    </div>
+    <div class="ankauf-details reveal">
+      <div class="ankauf-detail">
+        <p class="ankauf-detail-label">Wohneinheiten</p>
+        <p class="ankauf-detail-value">ab 6 WE</p>
+      </div>
+      <div class="ankauf-detail">
+        <p class="ankauf-detail-label">Baujahr</p>
+        <p class="ankauf-detail-value">ab 1900</p>
+      </div>
+      <div class="ankauf-detail">
+        <p class="ankauf-detail-label">Zustand</p>
+        <p class="ankauf-detail-value">Offen</p>
+      </div>
+      <div class="ankauf-detail">
+        <p class="ankauf-detail-label">Vermietungsstand</p>
+        <p class="ankauf-detail-value">Offen</p>
+      </div>
+      <div class="ankauf-detail">
+        <p class="ankauf-detail-label">Gewerbeanteil</p>
+        <p class="ankauf-detail-value">max. 30 %</p>
+      </div>
+    </div>
+    <div class="ankauf-footer reveal">
+      <span class="ankauf-tag">Eigenkapital vorhanden</span>
+      <span class="ankauf-tag">Schnelle Entscheidungswege</span>
+      <span class="ankauf-tag">Diskrete Abwicklung</span>
+    </div>
+  </div>
+</section>
+
+<section class="section kontakt" id="kontakt">
+  <div class="section-inner">
+    <div class="reveal">
+      <p class="section-label">Kontakt</p>
+      <h2 class="section-title">Objekt anbieten</h2>
+      <p class="section-subtitle">Sie haben ein Mehrfamilienhaus in Köln oder Wuppertal? Wir freuen uns über Ihre Nachricht — vertraulich und unverbindlich.</p>
+    </div>
+    <div class="divider reveal"></div>
+    <div class="kontakt-layout reveal">
+      <div class="kontakt-info">
+        <div class="kontakt-info-item">
+          <svg class="kontakt-info-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.2">
+            <path d="M3 5l7 5 7-5"/><rect x="2" y="4" width="16" height="12" rx="1.5"/>
+          </svg>
+          <div>
+            <p class="kontakt-info-label">E-Mail</p>
+            <p class="kontakt-info-value"><a href="mailto:kontakt@arns-immobilien.de">kontakt@arns-immobilien.de</a></p>
+          </div>
+        </div>
+        <div class="kontakt-info-item">
+          <svg class="kontakt-info-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.2">
+            <path d="M3 3h4l2 5-2.5 2a11 11 0 005 5L14 12.5l5 2v4a2 2 0 01-2 2A16 16 0 013 3z"/>
+          </svg>
+          <div>
+            <p class="kontakt-info-label">Telefon</p>
+            <p class="kontakt-info-value"><a href="tel:+4915153141392">0151 5314 1392</a></p>
+          </div>
+        </div>
+        <div class="kontakt-info-item">
+          <svg class="kontakt-info-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.2">
+            <circle cx="10" cy="8" r="3.5"/>
+            <path d="M10 18S2 13 2 8a8 8 0 0116 0c0 5-8 10-8 10z"/>
+          </svg>
+          <div>
+            <p class="kontakt-info-label">Adresse</p>
+            <p class="kontakt-info-value">Michael Arns<br>Eisenstr. 37<br>50825 Köln</p>
+          </div>
+        </div>
+      </div>
+      <form class="kontakt-form" onsubmit="handleSubmit(event)">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required placeholder="Ihr Name">
+        </div>
+        <div class="form-group">
+          <label for="email">E-Mail</label>
+          <input type="email" id="email" name="email" required placeholder="ihre@email.de">
+        </div>
+        <div class="form-group">
+          <label for="message">Nachricht</label>
+          <textarea id="message" name="message" required placeholder="Beschreiben Sie kurz das Objekt oder Ihr Anliegen …"></textarea>
+        </div>
+        <button type="submit" class="form-submit">Nachricht senden</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="section mieter" id="mieterportal">
+  <div class="section-inner">
+    <div class="reveal">
+      <p class="section-label">Für Mieter</p>
+      <h2 class="section-title">Mieterportal</h2>
+      <p class="section-subtitle">
+        Als Mieter einer ARNS-Immobilie können Sie über unser Portal 
+        Ihre Anliegen melden, Dokumente einsehen und direkt mit der Verwaltung kommunizieren.
+      </p>
+      <a href="https://app.immocloud.de" target="_blank" rel="noopener" class="mieter-cta">
+        Zum Mieterportal
+        <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M2.5 7h9M8 3.5L11.5 7 8 10.5"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <img src="Logo_ARNS_Immobilien.png" alt="ARNS Immobilien">
+    </div>
+    <ul class="footer-links">
+      <li><a href="#" onclick="openLegal('impressum'); return false;">Impressum</a></li>
+      <li><a href="#" onclick="openLegal('datenschutz'); return false;">Datenschutz</a></li>
+    </ul>
+    <span class="footer-copy">&copy; 2026 ARNS Immobilien</span>
+  </div>
+</footer>
+
+<div class="legal-overlay" id="impressum">
+  <div class="legal-header">
+    <button class="legal-back" onclick="closeLegal('impressum')">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 2.5L4.5 7 9 11.5"/></svg>
+      Zurück
+    </button>
+  </div>
+  <div class="legal-content">
+    <h1>Impressum</h1>
+    <h2>Angaben gemäß § 5 TMG</h2>
+    <p>Michael Arns<br>ARNS Immobilien<br>Eisenstr. 37<br>50825 Köln</p>
+    <h2>Kontakt</h2>
+    <p>Telefon: 0151 5314 1392<br>E-Mail: kontakt@arns-immobilien.de</p>
+    <h2>Haftung für Inhalte</h2>
+    <p>Als Diensteanbieter sind wir gemäß § 7 Abs. 1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.</p>
+    <p>Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.</p>
+    <h2>Haftung für Links</h2>
+    <p>Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.</p>
+    <h2>Urheberrecht</h2>
+    <p>Die durch den Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechts bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.</p>
+  </div>
+</div>
+
+<div class="legal-overlay" id="datenschutz">
+  <div class="legal-header">
+    <button class="legal-back" onclick="closeLegal('datenschutz')">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 2.5L4.5 7 9 11.5"/></svg>
+      Zurück
+    </button>
+  </div>
+  <div class="legal-content">
+    <h1>Datenschutzerklärung</h1>
+    <h2>1. Datenschutz auf einen Blick</h2>
+    <p>Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.</p>
+    <h2>2. Verantwortliche Stelle</h2>
+    <p>Michael Arns<br>ARNS Immobilien<br>Eisenstr. 37<br>50825 Köln<br>E-Mail: kontakt@arns-immobilien.de</p>
+    <h2>3. Datenerfassung auf dieser Website</h2>
+    <p><strong>Kontaktformular:</strong> Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben aus dem Anfrageformular inklusive der von Ihnen dort angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.</p>
+    <p>Die Verarbeitung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO, sofern Ihre Anfrage mit der Erfüllung eines Vertrags zusammenhängt oder zur Durchführung vorvertraglicher Maßnahmen erforderlich ist. In allen übrigen Fällen beruht die Verarbeitung auf unserem berechtigten Interesse an der effektiven Bearbeitung der an uns gerichteten Anfragen (Art. 6 Abs. 1 lit. f DSGVO).</p>
+    <h2>4. Hosting</h2>
+    <p>Diese Website wird extern gehostet. Die personenbezogenen Daten, die auf dieser Website erfasst werden, werden auf den Servern des Hosters gespeichert. Hierbei kann es sich um IP-Adressen, Kontaktanfragen, Meta- und Kommunikationsdaten, Vertragsdaten, Kontaktdaten, Namen, Webseitenzugriffe und sonstige Daten, die über eine Website generiert werden, handeln.</p>
+    <h2>5. Ihre Rechte</h2>
+    <p>Sie haben jederzeit das Recht, unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten. Sie haben außerdem ein Recht, die Berichtigung oder Löschung dieser Daten zu verlangen. Hierzu sowie zu weiteren Fragen zum Thema Datenschutz können Sie sich jederzeit an uns wenden.</p>
+  </div>
+</div>
+
+<script>
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 20); });
+function toggleMenu() { document.getElementById('navLinks').classList.toggle('open'); }
+function closeMenu() { document.getElementById('navLinks').classList.remove('open'); }
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) { setTimeout(() => entry.target.classList.add('visible'), i * 100); observer.unobserve(entry.target); }
+  });
+}, { threshold: 0.15 });
+reveals.forEach(el => observer.observe(el));
+function openLegal(id) { document.getElementById(id).classList.add('active'); document.body.style.overflow = 'hidden'; }
+function closeLegal(id) { document.getElementById(id).classList.remove('active'); document.body.style.overflow = ''; }
+function handleSubmit(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('.form-submit');
+  btn.textContent = 'Gesendet ✓'; btn.style.background = '#1B5E3B';
+  setTimeout(() => { btn.textContent = 'Nachricht senden'; btn.style.background = ''; e.target.reset(); }, 3000);
+}
+</script>
+</body>
+</html>
