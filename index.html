@@ -3,14 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ARNS Immobilien — Privater Immobilieninvestor · Köln & Wuppertal</title>
-<meta name="description" content="ARNS Immobilien — Privater Investor für Mehrfamilienhäuser in Köln und Wuppertal. Seriös, entscheidungsstark, eigenkapitalfinanziert.">
+<title>Mehrfamilienhäuser kaufen in Köln & Wuppertal — ARNS Immobilien | Privater Investor</title>
+<meta name="description" content="ARNS Immobilien kauft Mehrfamilienhäuser in Köln und Wuppertal. Kaufpreis 500.000–1.000.000 €, ab 6 WE. Eigenkapital vorhanden, schnelle Entscheidung, diskrete Abwicklung. Jetzt Objekt anbieten.">
 <link rel="canonical" href="https://arns-immobilien.de/">
-<meta property="og:title" content="ARNS Immobilien — Privater Immobilieninvestor">
-<meta property="og:description" content="Wir investieren gezielt in Mehrfamilienhäuser in Köln und Wuppertal. Schnelle Entscheidungswege, Eigenkapital vorhanden.">
+<meta property="og:title" content="ARNS Immobilien — Mehrfamilienhäuser kaufen in Köln & Wuppertal">
+<meta property="og:description" content="Privater Investor mit Eigenkapital. Kaufpreis 500.000–1.000.000 €, ab 6 WE. Schnelle Entscheidung, diskrete Abwicklung.">
+<meta property="og:image" content="https://arns-immobilien.de/og-image.jpg">
 <meta property="og:url" content="https://arns-immobilien.de/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="de_DE">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
@@ -267,26 +270,22 @@ body {
 .footer-links a:hover { color: rgba(255,255,255,0.85); }
 .footer-copy { font-size: 0.7rem; font-weight: 300; color: rgba(255,255,255,0.25); }
 
-/* Legal Overlays */
-.legal-overlay {
-  display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-  z-index: 200; background: var(--white); overflow-y: auto;
+/* Honeypot */
+.form-hp { position: absolute; left: -9999px; opacity: 0; height: 0; width: 0; overflow: hidden; }
+
+/* Success Message */
+.form-success {
+  display: none; text-align: center; padding: 2.5rem 1.5rem;
+  background: var(--off-white); border: 1px solid var(--border-light);
 }
-.legal-overlay.active { display: block; }
-.legal-header {
-  position: sticky; top: 0; background: rgba(255,255,255,0.97);
-  backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-light);
-  padding: 0 2rem; height: 72px; display: flex; align-items: center;
+.form-success.visible { display: block; }
+.form-success-icon { font-size: 2rem; margin-bottom: 1rem; }
+.form-success h3 {
+  font-size: 1.1rem; font-weight: 400; color: var(--brand); margin-bottom: 0.5rem;
 }
-.legal-back {
-  font-family: var(--font); font-size: 0.75rem; font-weight: 500;
-  color: var(--brand); cursor: pointer; display: flex; align-items: center;
-  gap: 0.5rem; background: none; border: none; letter-spacing: 0.05em;
+.form-success p {
+  font-size: 0.875rem; font-weight: 300; color: var(--text-secondary); line-height: 1.7;
 }
-.legal-content { max-width: 640px; margin: 0 auto; padding: 3.5rem 2rem 6rem; }
-.legal-content h1 { font-size: 1.8rem; font-weight: 300; color: var(--brand); margin-bottom: 2.5rem; }
-.legal-content h2 { font-size: 0.95rem; font-weight: 500; color: var(--brand); margin: 2.5rem 0 0.75rem; }
-.legal-content p { font-size: 0.9rem; font-weight: 300; color: var(--text-secondary); line-height: 1.85; margin-bottom: 1rem; }
 
 /* Animations */
 @keyframes fadeUp {
@@ -317,13 +316,39 @@ body {
   .footer-inner { flex-direction: column; gap: 1.5rem; text-align: center; }
 }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "RealEstateAgent",
+  "name": "ARNS Immobilien",
+  "description": "Privater Immobilieninvestor für Mehrfamilienhäuser in Köln und Wuppertal",
+  "url": "https://arns-immobilien.de",
+  "telephone": "+4915153141392",
+  "email": "kontakt@arns-immobilien.de",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Eisenstr. 37",
+    "addressLocality": "Köln",
+    "postalCode": "50825",
+    "addressCountry": "DE"
+  },
+  "founder": {
+    "@type": "Person",
+    "name": "Michael Arns"
+  },
+  "areaServed": [
+    { "@type": "City", "name": "Köln" },
+    { "@type": "City", "name": "Wuppertal" }
+  ]
+}
+</script>
 </head>
 <body>
 
 <nav class="nav" id="nav">
   <div class="nav-inner">
     <a href="#hero" class="nav-logo">
-      <img src="Logo_ARNS_Immobilien.png" alt="ARNS Immobilien">
+      <img src="Logo_ARNS_Immobilien.png" alt="ARNS Immobilien" width="160" height="40">
     </a>
     <ul class="nav-links" id="navLinks">
       <li><a href="#ankaufsprofil" onclick="closeMenu()">Ankaufsprofil</a></li>
@@ -338,7 +363,7 @@ body {
 
 <section class="hero" id="hero">
   <div class="hero-content">
-    <img src="Logo_ARNS_Immobilien.png" alt="ARNS Immobilien" class="hero-logo">
+    <img src="Logo_ARNS_Immobilien.png" alt="ARNS Immobilien" class="hero-logo" width="110" height="110">
     <p class="hero-eyebrow">Privater Immobilieninvestor</p>
     <h1><strong>Mehrfamilienhäuser</strong> in<br>Köln &amp; Wuppertal</h1>
     <p class="hero-subtitle">
@@ -460,7 +485,11 @@ body {
           </div>
         </div>
       </div>
-      <form class="kontakt-form" onsubmit="handleSubmit(event)">
+      <form class="kontakt-form" id="kontaktForm" onsubmit="handleSubmit(event)">
+        <div class="form-hp" aria-hidden="true">
+          <label for="website">Website</label>
+          <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+        </div>
         <div class="form-group">
           <label for="name">Name</label>
           <input type="text" id="name" name="name" required placeholder="Ihr Name">
@@ -470,11 +499,28 @@ body {
           <input type="email" id="email" name="email" required placeholder="ihre@email.de">
         </div>
         <div class="form-group">
+          <label for="objektadresse">Objektadresse (optional)</label>
+          <input type="text" id="objektadresse" name="objektadresse" placeholder="Straße, PLZ, Ort">
+        </div>
+        <div class="form-group">
+          <label for="wohneinheiten">Anzahl Wohneinheiten (optional)</label>
+          <input type="text" id="wohneinheiten" name="wohneinheiten" placeholder="z. B. 8 WE">
+        </div>
+        <div class="form-group">
+          <label for="kaufpreis">Kaufpreisvorstellung (optional)</label>
+          <input type="text" id="kaufpreis" name="kaufpreis" placeholder="z. B. 750.000 €">
+        </div>
+        <div class="form-group">
           <label for="message">Nachricht</label>
           <textarea id="message" name="message" required placeholder="Beschreiben Sie kurz das Objekt oder Ihr Anliegen …"></textarea>
         </div>
         <button type="submit" class="form-submit">Nachricht senden</button>
       </form>
+      <div class="form-success" id="formSuccess">
+        <div class="form-success-icon">&#10003;</div>
+        <h3>Vielen Dank für Ihre Nachricht</h3>
+        <p>Wir haben Ihre Anfrage erhalten und melden uns innerhalb von 24 Stunden bei Ihnen.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -501,61 +547,16 @@ body {
 <footer class="footer">
   <div class="footer-inner">
     <div class="footer-logo">
-      <img src="Logo_ARNS_Immobilien.png" alt="ARNS Immobilien">
+      <img src="Logo_ARNS_Immobilien.png" alt="ARNS Immobilien" width="112" height="28" loading="lazy">
     </div>
     <ul class="footer-links">
-      <li><a href="#" onclick="openLegal('impressum'); return false;">Impressum</a></li>
-      <li><a href="#" onclick="openLegal('datenschutz'); return false;">Datenschutz</a></li>
+      <li><a href="/impressum.html">Impressum</a></li>
+      <li><a href="/datenschutz.html">Datenschutz</a></li>
     </ul>
     <span class="footer-copy">&copy; 2026 ARNS Immobilien</span>
   </div>
 </footer>
 
-<div class="legal-overlay" id="impressum">
-  <div class="legal-header">
-    <button class="legal-back" onclick="closeLegal('impressum')">
-      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 2.5L4.5 7 9 11.5"/></svg>
-      Zurück
-    </button>
-  </div>
-  <div class="legal-content">
-    <h1>Impressum</h1>
-    <h2>Angaben gemäß § 5 TMG</h2>
-    <p>Michael Arns<br>ARNS Immobilien<br>Eisenstr. 37<br>50825 Köln</p>
-    <h2>Kontakt</h2>
-    <p>Telefon: 0151 5314 1392<br>E-Mail: kontakt@arns-immobilien.de</p>
-    <h2>Haftung für Inhalte</h2>
-    <p>Als Diensteanbieter sind wir gemäß § 7 Abs. 1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.</p>
-    <p>Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.</p>
-    <h2>Haftung für Links</h2>
-    <p>Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.</p>
-    <h2>Urheberrecht</h2>
-    <p>Die durch den Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechts bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.</p>
-  </div>
-</div>
-
-<div class="legal-overlay" id="datenschutz">
-  <div class="legal-header">
-    <button class="legal-back" onclick="closeLegal('datenschutz')">
-      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 2.5L4.5 7 9 11.5"/></svg>
-      Zurück
-    </button>
-  </div>
-  <div class="legal-content">
-    <h1>Datenschutzerklärung</h1>
-    <h2>1. Datenschutz auf einen Blick</h2>
-    <p>Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.</p>
-    <h2>2. Verantwortliche Stelle</h2>
-    <p>Michael Arns<br>ARNS Immobilien<br>Eisenstr. 37<br>50825 Köln<br>E-Mail: kontakt@arns-immobilien.de</p>
-    <h2>3. Datenerfassung auf dieser Website</h2>
-    <p><strong>Kontaktformular:</strong> Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben aus dem Anfrageformular inklusive der von Ihnen dort angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.</p>
-    <p>Die Verarbeitung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO, sofern Ihre Anfrage mit der Erfüllung eines Vertrags zusammenhängt oder zur Durchführung vorvertraglicher Maßnahmen erforderlich ist. In allen übrigen Fällen beruht die Verarbeitung auf unserem berechtigten Interesse an der effektiven Bearbeitung der an uns gerichteten Anfragen (Art. 6 Abs. 1 lit. f DSGVO).</p>
-    <h2>4. Hosting</h2>
-    <p>Diese Website wird extern gehostet. Die personenbezogenen Daten, die auf dieser Website erfasst werden, werden auf den Servern des Hosters gespeichert. Hierbei kann es sich um IP-Adressen, Kontaktanfragen, Meta- und Kommunikationsdaten, Vertragsdaten, Kontaktdaten, Namen, Webseitenzugriffe und sonstige Daten, die über eine Website generiert werden, handeln.</p>
-    <h2>5. Ihre Rechte</h2>
-    <p>Sie haben jederzeit das Recht, unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten. Sie haben außerdem ein Recht, die Berichtigung oder Löschung dieser Daten zu verlangen. Hierzu sowie zu weiteren Fragen zum Thema Datenschutz können Sie sich jederzeit an uns wenden.</p>
-  </div>
-</div>
 
 <script>
 const nav = document.getElementById('nav');
@@ -569,13 +570,14 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.15 });
 reveals.forEach(el => observer.observe(el));
-function openLegal(id) { document.getElementById(id).classList.add('active'); document.body.style.overflow = 'hidden'; }
-function closeLegal(id) { document.getElementById(id).classList.remove('active'); document.body.style.overflow = ''; }
 function handleSubmit(e) {
   e.preventDefault();
-  const btn = e.target.querySelector('.form-submit');
-  btn.textContent = 'Gesendet ✓'; btn.style.background = '#1B5E3B';
-  setTimeout(() => { btn.textContent = 'Nachricht senden'; btn.style.background = ''; e.target.reset(); }, 3000);
+  if (e.target.querySelector('[name="website"]').value) return;
+  const form = document.getElementById('kontaktForm');
+  const success = document.getElementById('formSuccess');
+  form.style.display = 'none';
+  success.classList.add('visible');
+  form.reset();
 }
 </script>
 </body>
