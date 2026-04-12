@@ -760,10 +760,14 @@ body {
           </div>
         </div>
       </div>
-      <form class="kontakt-form" id="kontaktForm" onsubmit="handleSubmit(event)">
+      <form class="kontakt-form" id="kontaktForm" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="DEIN_ACCESS_KEY_HIER">
+        <input type="hidden" name="subject" value="Neue Objektanfrage über arns-immobilien.de">
+        <input type="hidden" name="from_name" value="ARNS Immobilien Website">
+        <input type="hidden" name="redirect" value="https://arns-immobilien.de/#kontakt-erfolg">
         <div class="form-hp" aria-hidden="true">
           <label for="website">Website</label>
-          <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+          <input type="text" id="website" name="botcheck" tabindex="-1" autocomplete="off">
         </div>
         <div class="form-group">
           <label for="name">Name</label>
@@ -791,7 +795,7 @@ body {
         </div>
         <button type="submit" class="form-submit">Nachricht senden</button>
       </form>
-      <div class="form-success" id="formSuccess">
+      <div class="form-success" id="kontakt-erfolg">
         <div class="form-success-icon">&#10003;</div>
         <h3>Vielen Dank für Ihre Nachricht</h3>
         <p>Wir haben Ihre Anfrage erhalten und melden uns innerhalb von 24 Stunden bei Ihnen.</p>
@@ -849,14 +853,14 @@ function toggleFaq(btn) {
   const item = btn.parentElement;
   item.classList.toggle('open');
 }
-function handleSubmit(e) {
-  e.preventDefault();
-  if (e.target.querySelector('[name="website"]').value) return;
+if (window.location.hash === '#kontakt-erfolg') {
   const form = document.getElementById('kontaktForm');
-  const success = document.getElementById('formSuccess');
-  form.style.display = 'none';
-  success.classList.add('visible');
-  form.reset();
+  const success = document.getElementById('kontakt-erfolg');
+  if (form && success) {
+    form.style.display = 'none';
+    success.classList.add('visible');
+    document.getElementById('kontakt').scrollIntoView({ behavior: 'smooth' });
+  }
 }
 </script>
 </body>
