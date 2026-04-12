@@ -316,6 +316,18 @@ body {
 .whatsapp:hover { transform: scale(1.08); box-shadow: 0 6px 24px rgba(19, 39, 70, 0.35); }
 .whatsapp svg { width: 26px; height: 26px; }
 
+.form-toggle {
+  background: none; border: none; cursor: pointer;
+  font-family: var(--font); font-size: 0.75rem; font-weight: 400;
+  color: var(--text-tertiary); padding: 0; text-align: left;
+  transition: color 0.2s;
+}
+.form-toggle:hover { color: var(--brand); }
+.form-details {
+  display: none; flex-direction: column; gap: 1.25rem;
+}
+.form-details.visible { display: flex; }
+
 /* Honeypot */
 .form-hp { position: absolute; left: -9999px; opacity: 0; height: 0; width: 0; overflow: hidden; }
 
@@ -849,20 +861,23 @@ body {
           <input type="email" id="email" name="email" required placeholder="ihre@email.de">
         </div>
         <div class="form-group">
-          <label for="objektadresse">Objektadresse (optional)</label>
-          <input type="text" id="objektadresse" name="objektadresse" placeholder="Straße, PLZ, Ort">
-        </div>
-        <div class="form-group">
-          <label for="wohneinheiten">Anzahl Wohneinheiten (optional)</label>
-          <input type="text" id="wohneinheiten" name="wohneinheiten" placeholder="z. B. 8 WE">
-        </div>
-        <div class="form-group">
-          <label for="kaufpreis">Kaufpreisvorstellung (optional)</label>
-          <input type="text" id="kaufpreis" name="kaufpreis" placeholder="z. B. 750.000 €">
-        </div>
-        <div class="form-group">
           <label for="message">Nachricht</label>
           <textarea id="message" name="message" required placeholder="Beschreiben Sie kurz das Objekt oder Ihr Anliegen …"></textarea>
+        </div>
+        <button type="button" class="form-toggle" id="formToggle" onclick="toggleDetails()">+ Objektdetails ergänzen (optional)</button>
+        <div class="form-details" id="formDetails">
+          <div class="form-group">
+            <label for="objektadresse">Objektadresse</label>
+            <input type="text" id="objektadresse" name="objektadresse" placeholder="Straße, PLZ, Ort">
+          </div>
+          <div class="form-group">
+            <label for="wohneinheiten">Anzahl Wohneinheiten</label>
+            <input type="text" id="wohneinheiten" name="wohneinheiten" placeholder="z. B. 8 WE">
+          </div>
+          <div class="form-group">
+            <label for="kaufpreis">Kaufpreisvorstellung</label>
+            <input type="text" id="kaufpreis" name="kaufpreis" placeholder="z. B. 750.000 €">
+          </div>
         </div>
         <button type="submit" class="form-submit">Nachricht senden</button>
       </form>
@@ -951,6 +966,12 @@ function toggleFaq(btn) {
   const isOpen = item.classList.contains('open');
   btn.setAttribute('aria-expanded', isOpen);
   answer.style.maxHeight = isOpen ? answer.scrollHeight + 'px' : '0';
+}
+function toggleDetails() {
+  const details = document.getElementById('formDetails');
+  const btn = document.getElementById('formToggle');
+  details.classList.toggle('visible');
+  btn.textContent = details.classList.contains('visible') ? '− Objektdetails ausblenden' : '+ Objektdetails ergänzen (optional)';
 }
 const wa = document.getElementById('whatsapp');
 window.addEventListener('scroll', () => { wa.classList.toggle('visible', window.scrollY > 300); });
