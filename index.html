@@ -402,7 +402,7 @@ body {
 .reveal.visible { opacity: 1; transform: translateY(0); }
 
 /* Mobile */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .nav-links { display: none; }
   .nav-links.open {
     display: flex; flex-direction: column; position: absolute;
@@ -411,6 +411,8 @@ body {
     border-bottom: 1px solid var(--border-light);
   }
   .nav-hamburger { display: flex; }
+}
+@media (max-width: 768px) {
   .nav-phone span { display: none; }
   .nav-phone { margin-right: 0.5rem; }
   .hero { min-height: auto; padding: 8rem 1.5rem 5rem; }
@@ -890,6 +892,10 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.15 });
 reveals.forEach(el => observer.observe(el));
+document.addEventListener('click', (e) => {
+  const navLinks = document.getElementById('navLinks');
+  if (navLinks.classList.contains('open') && !e.target.closest('.nav-inner')) closeMenu();
+});
 function toggleFaq(btn) {
   const item = btn.parentElement;
   item.classList.toggle('open');
