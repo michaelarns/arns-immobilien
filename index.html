@@ -388,7 +388,7 @@ body {
 .faq-answer {
   max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease;
 }
-.faq-item.open .faq-answer { max-height: 300px; }
+.faq-item.open .faq-answer { max-height: none; }
 .faq-answer p {
   font-size: 0.9rem; font-weight: 300; color: var(--text-secondary);
   line-height: 1.85; padding-bottom: 1.5rem;
@@ -899,8 +899,11 @@ document.addEventListener('click', (e) => {
 });
 function toggleFaq(btn) {
   const item = btn.parentElement;
+  const answer = item.querySelector('.faq-answer');
   item.classList.toggle('open');
-  btn.setAttribute('aria-expanded', item.classList.contains('open'));
+  const isOpen = item.classList.contains('open');
+  btn.setAttribute('aria-expanded', isOpen);
+  answer.style.maxHeight = isOpen ? answer.scrollHeight + 'px' : '0';
 }
 if (window.location.hash === '#kontakt-erfolg') {
   const form = document.getElementById('kontaktForm');
