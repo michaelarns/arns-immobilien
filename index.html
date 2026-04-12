@@ -100,6 +100,12 @@ body {
   cursor: pointer; padding: 8px; background: none; border: none;
 }
 .nav-hamburger span { width: 22px; height: 1.5px; background: var(--brand); }
+.skip-link {
+  position: absolute; top: -100%; left: 1rem; z-index: 200;
+  background: var(--brand); color: var(--white); padding: 0.75rem 1.5rem;
+  font-size: 0.8rem; font-weight: 500; text-decoration: none;
+}
+.skip-link:focus { top: 0.5rem; }
 
 /* Hero */
 .hero {
@@ -241,10 +247,13 @@ body {
   border: 1px solid var(--border); padding: 0.85rem 1rem;
   transition: border-color 0.2s; outline: none;
 }
+:focus-visible {
+  outline: 2px solid var(--brand); outline-offset: 2px;
+}
 .form-group input::placeholder, .form-group textarea::placeholder {
   color: var(--text-tertiary); font-weight: 300;
 }
-.form-group input:focus, .form-group textarea:focus { border-color: var(--brand-muted); }
+.form-group input:focus, .form-group textarea:focus { border-color: var(--brand-muted); outline: 2px solid var(--brand-muted); outline-offset: -2px; }
 .form-group textarea { resize: vertical; min-height: 120px; }
 .form-submit {
   align-self: flex-start; font-family: var(--font);
@@ -508,7 +517,8 @@ body {
 </head>
 <body>
 
-<nav class="nav" id="nav">
+<a href="#inhalt" class="skip-link">Zum Inhalt springen</a>
+<nav class="nav" id="nav" aria-label="Hauptnavigation">
   <div class="nav-inner">
     <a href="#hero" class="nav-logo">
       <img src="Logo_ARNS_Immobilien.png" alt="ARNS Immobilien" width="160" height="40">
@@ -531,6 +541,7 @@ body {
   </div>
 </nav>
 
+<main id="inhalt">
 <section class="hero" id="hero">
   <div class="hero-content">
     <img src="Logo_ARNS_Immobilien.png" alt="ARNS Immobilien" class="hero-logo" width="110" height="110">
@@ -841,15 +852,19 @@ body {
   </div>
 </section>
 
+</main>
+
 <footer class="footer">
   <div class="footer-inner">
     <div class="footer-logo">
       <img src="Logo_ARNS_Immobilien.png" alt="ARNS Immobilien" width="112" height="28" loading="lazy">
     </div>
-    <ul class="footer-links">
-      <li><a href="/impressum.html">Impressum</a></li>
-      <li><a href="/datenschutz.html">Datenschutz</a></li>
-    </ul>
+    <nav aria-label="Rechtliches">
+      <ul class="footer-links">
+        <li><a href="/impressum.html">Impressum</a></li>
+        <li><a href="/datenschutz.html">Datenschutz</a></li>
+      </ul>
+    </nav>
     <span class="footer-copy">&copy; 2026 ARNS Immobilien</span>
   </div>
 </footer>
