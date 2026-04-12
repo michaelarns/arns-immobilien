@@ -1,6 +1,6 @@
 # MANUAL_TODO — Offene Punkte (nicht automatisiert lösbar)
 
-Stand: 11. April 2026
+Stand: 12. April 2026
 
 ---
 
@@ -30,13 +30,19 @@ Stand: 11. April 2026
 - Ziel: mindestens 3–5 Bewertungen im Google Business Profile
 - **Warum:** Bewertungen sind der stärkste lokale Ranking-Faktor
 
-### 4. WCAG-Kontraste prüfen
-- Mit [WAVE Tool](https://wave.webaim.org/) oder axe DevTools die Seite prüfen
-- Mindestens 4,5:1 Kontrastverhältnis für normalen Text
-- Mindestens 3:1 für großen Text (>18px)
-- Ggf. Farbwerte in CSS-Variablen anpassen
+### 4. Lighthouse / PageSpeed Insights prüfen
+- Unter [pagespeed.web.dev](https://pagespeed.web.dev/) die URL eingeben
+- Zielwerte: LCP ≤2,5s, INP <200ms, CLS <0,1
+- Ggf. weitere Bildoptimierung oder Caching-Anpassungen
+- **Warum:** Core Web Vitals sind direkter Google-Ranking-Faktor
 
-### 5. Social-Media-Profile anlegen / verknüpfen
+### 5. Trust-Elemente ergänzen
+- Echte Kundenstimmen / Testimonials von Verkäufern oder Maklern
+- Mitgliedschafts-Logos (z.B. IVD, Haus & Grund)
+- Zertifikate oder Auszeichnungen
+- **Warum:** Studien zeigen bis zu +42% mehr Conversions mit Trust-Badges
+
+### 6. Social-Media-Profile anlegen / verknüpfen
 - LinkedIn-Profil für Michael Arns erstellen oder aktualisieren
 - Optional: XING, Instagram (Objekt-Fotos)
 - Profile auf der Website verlinken
@@ -61,6 +67,4 @@ Stand: 11. April 2026
 - Bei wachsendem Content (Blog, Objekt-Listings) Hugo, Astro oder 11ty prüfen
 - Aktuell: Statische HTML-Dateien sind performant, aber schwer skalierbar
 
-### 9. WhatsApp-Button als Zweit-CTA
-- Neben "Objekt anbieten" einen WhatsApp-Link anbieten
-- Senkt die Hemmschwelle für spontane Kontaktaufnahmen
+### ~~9. WhatsApp-Button als Zweit-CTA~~ ✅ Erledigt
